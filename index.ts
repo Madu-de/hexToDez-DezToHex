@@ -1,14 +1,18 @@
-const INPUT: string = '3f'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
-const INPUT2: number = 0; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
-const INPUT3: string = '0101001100011'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
-const INPUT4: number = 24575696094004087578465574578786489577457846894; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
+const HexToDez: string = '6DF'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
+const DezToHex: number = 96; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
+const BinToDez: string = '0000000001000101'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
+const DezToBin: number = 103; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
+const HexToBin: string = 'c000013a'; // Hier eine Zahl, die von Hexadezimal zu Binär gerechnet werden soll.
+const BinToHex: string = '0000000000110000'; // Hier eine Zahl, die von Binär zu Hexadezimal gerechnet werden soll.
 
-console.log('HexToDez says: ' + hexToDez(INPUT));
-console.log('DezToHex says: ' + dezToHex(INPUT2));
-console.log('BinToDez says: ' + binToDez(INPUT3));
-console.log('DezToBin says: ' + dezToBin(INPUT4));
+console.log('HexToDez says: ' + hexToDez(HexToDez));
+console.log('DezToHex says: ' + dezToHex(DezToHex));
+console.log('BinToDez says: ' + binToDez(BinToDez));
+console.log('DezToBin says: ' + dezToBin(DezToBin));
+console.log('HexToBin says: ' + hexToBin(HexToBin));
+console.log('BinToHex says: ' + binToHex(BinToHex));
 
-function hexToDez(input: string): string | number {
+function hexToDez(input: string): any {
 
     let output: number = 0;
     let count: number = 0;
@@ -16,28 +20,23 @@ function hexToDez(input: string): string | number {
 
     for (let i = input.length; i > 0; i--) {
         let element: string = input.charAt(i - 1);
+        element = element.toLowerCase();
         switch (element) {
-            case 'A':
             case 'a':
                 zahl = 10;
                 break;
-            case 'B':
             case 'b':
                 zahl = 11;
                 break;
-            case 'C':
             case 'c':
                 zahl = 12;
                 break;
-            case 'D':
             case 'd':
                 zahl = 13;
                 break;
-            case 'E':
             case 'e':
                 zahl = 14;
                 break;
-            case 'F':
             case 'f':
                 zahl = 15;
                 break;
@@ -137,6 +136,27 @@ function dezToBin(input: number): string {
         let element: any = rests[i];
         output = element + output;
     }
+
+    return output;
+}
+
+function hexToBin(input: string): string {
+
+    let output: string;
+
+    let dezimal = hexToDez(input);
+
+    output = dezToBin(parseInt(dezimal));
+
+    return output;
+}
+
+function binToHex(input: string): string {
+    let output: string;
+
+    let dezimal = binToDez(input);
+
+    output = dezToHex(dezimal);
 
     return output;
 }
