@@ -1,8 +1,12 @@
-const input: string = '2B94E3B97FD4'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
-const input2: number = 823465289347; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
+const INPUT: string = '3f'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
+const INPUT2: number = 0; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
+const INPUT3: string = '0101001100011'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
+const INPUT4: number = 24575696094004087578465574578786489577457846894; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
 
-console.log('hexToDez says: ' + hexToDez(input));
-console.log('DezToHex says: ' + dezToHex(input2));
+console.log('HexToDez says: ' + hexToDez(INPUT));
+console.log('DezToHex says: ' + dezToHex(INPUT2));
+console.log('BinToDez says: ' + binToDez(INPUT3));
+console.log('DezToBin says: ' + dezToBin(INPUT4));
 
 function hexToDez(input: string): string | number {
 
@@ -101,4 +105,38 @@ function dezToHex(input: string | number): string {
 
     return output;
 
+}
+
+function binToDez(input: string): number {
+
+    let output: number = 0;
+    let count: number = 0;
+
+    for (let i = input.length; i > 0; i--) {
+        let element: number = parseInt(input.charAt(i - 1));
+
+        output += element * Math.pow(2, count);
+        count++;
+    }
+
+    return output;
+
+}
+
+function dezToBin(input: number): string {
+
+    let output: string = '';
+    let rests: number[] = [];
+
+    while (input > 0) {
+        rests.push(input % 2);
+        input = Math.floor(input / 2);
+    }
+
+    for (let i = 0; i < rests.length; i++) {
+        let element: any = rests[i];
+        output = element + output;
+    }
+
+    return output;
 }
