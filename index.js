@@ -155,7 +155,6 @@ function hexToBin(input: string): string {
     if (output == '') {
         return 'Ein Fehler ist aufgetreten!';
     }
-
     return output;
 }
 
