@@ -1,9 +1,13 @@
-const HexToDez: string = '6DF'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
-const DezToHex: number = 96; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
-const BinToDez: string = '0000000001000101'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
-const DezToBin: number = 103; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
-const HexToBin: string = 'c000013a'; // Hier eine Zahl, die von Hexadezimal zu Binär gerechnet werden soll.
-const BinToHex: string = '0000000000110000'; // Hier eine Zahl, die von Binär zu Hexadezimal gerechnet werden soll.
+// #########################################################################################
+// Code by Madu https://github.com/madu-de GNU Affero General Public License v3.0 license
+// #########################################################################################
+
+const HexToDez: string = 'beef'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
+const DezToHex: number = 234; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
+const BinToDez: string = '01010101001010101001010101010101010101010101010'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
+const DezToBin: number = 234; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
+const HexToBin: string = '19856398756Fe'; // Hier eine Zahl, die von Hexadezimal zu Binär gerechnet werden soll.
+const BinToHex: string = '1001'; // Hier eine Zahl, die von Binär zu Hexadezimal gerechnet werden soll.
 
 console.log('HexToDez says: ' + hexToDez(HexToDez));
 console.log('DezToHex says: ' + dezToHex(DezToHex));
@@ -148,6 +152,10 @@ function hexToBin(input: string): string {
 
     output = dezToBin(parseInt(dezimal));
 
+    if (output == '') {
+        return 'Ein Fehler ist aufgetreten!';
+    }
+
     return output;
 }
 
@@ -157,6 +165,10 @@ function binToHex(input: string): string {
     let dezimal = binToDez(input);
 
     output = dezToHex(dezimal);
+
+    if (output == '') {
+        return 'Ein Fehler ist aufgetreten!';
+    }
 
     return output;
 }
