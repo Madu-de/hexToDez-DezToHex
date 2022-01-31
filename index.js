@@ -1,10 +1,12 @@
-var HexToDez = '6DF'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
-var DezToHex = 96; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
-var BinToDez = '0000000001000101'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
-var DezToBin = 103; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
-var HexToBin = 'c000013a'; // Hier eine Zahl, die von Hexadezimal zu Binär gerechnet werden soll.
-var BinToHex = '0000000000110000'; // Hier eine Zahl, die von Binär zu Hexadezimal gerechnet werden soll.
-
+// #########################################################################################
+// Code by Madu https://github.com/madu-de GNU Affero General Public License v3.0 license
+// #########################################################################################
+var HexToDez = 'beef'; // Hier eine Zahl, die von Hexadezimal zu Dezimal gerechnet werden soll.
+var DezToHex = 234; // Hier eine Zahl, die von Dezimal zu Hexadezimal gerechnet werden soll.
+var BinToDez = '01010101001010101001010101010101010101010101010'; // Hier eine Zahl, die von Binär zu Dezimal gerechnet werden soll.
+var DezToBin = 234; // Hier eine Zahl, die von Dezimal zu Binär gerechnet werden soll.
+var HexToBin = '19856398756Fe'; // Hier eine Zahl, die von Hexadezimal zu Binär gerechnet werden soll.
+var BinToHex = '1001'; // Hier eine Zahl, die von Binär zu Hexadezimal gerechnet werden soll.
 console.log('HexToDez says: ' + hexToDez(HexToDez));
 console.log('DezToHex says: ' + dezToHex(DezToHex));
 console.log('BinToDez says: ' + binToDez(BinToDez));
@@ -121,11 +123,17 @@ function hexToBin(input) {
     var output;
     var dezimal = hexToDez(input);
     output = dezToBin(parseInt(dezimal));
+    if (output == '') {
+        return 'Ein Fehler ist aufgetreten!';
+    }
     return output;
 }
 function binToHex(input) {
     var output;
     var dezimal = binToDez(input);
     output = dezToHex(dezimal);
+    if (output == '') {
+        return 'Ein Fehler ist aufgetreten!';
+    }
     return output;
 }
